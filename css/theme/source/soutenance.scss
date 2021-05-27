@@ -1,0 +1,831 @@
+/**
+ * Custom theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Me
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;700;800;900&display=swap');
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #25313f;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$mainFontSize: 42px;
+$mainFont: 'Poppins', Helvetica, sans-serif;
+$headingFont: 'Alegreya Sans SC', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 500;
+$linkColor: #42affa;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.5em;
+$heading4Size: 1.0em;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+$red: #ff5647;
+$grey: #86909C;
+$bg-grey: #25313f;
+
+@keyframes shake {
+  0% {
+    right: 165px
+  }
+  50% {
+    right: 172px
+  }
+  100% {
+    right: 165px
+  }
+
+}
+
+
+.reveal {
+  position: relative;
+
+  .slide-number {
+    font-family: "Alegreya Sans SC", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    bottom: 16px;
+    left: 1%;
+    width: fit-content;
+    color: $red;
+    background-color: transparent;
+  }
+
+  .top {
+    width: 100%;
+    height: fit-content;
+    z-index: 200;
+    background: linear-gradient(to bottom, rgba(48, 48, 48, 0.7), rgba(48, 48, 48, 0));
+    position: fixed;
+    top: 0;
+
+    .top-inner {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 85%;
+      margin: auto;
+
+      img {
+        width: 12vw;
+        min-width: 120px;
+        object-fit: contain;
+      }
+    }
+
+  }
+
+  #slide1-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url(../../assets/bg-computer3.jpg) no-repeat right center;
+    background-size: 80vw;
+    z-index: 1;
+    display: flex;
+
+    iframe {
+      //z-index: 200;
+      position: absolute;
+      width: 34.5vw !important;
+      height: 22vw !important;
+      bottom: 50%;
+      transform: translateY(50%);
+      right: 15.5vw;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+
+    .slide1_text {
+      text-align: left;
+      margin: auto;
+      z-index: 0;
+      height: 55vh;
+      width: 90%;
+      max-width: 2500px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+      padding: 85px 55px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      h1 {
+        //font-size: 5rem;
+      }
+
+
+      .subtitle {
+        text-transform: unset;
+        font-size: 18px;
+        color: whitesmoke;
+        font-weight: 300;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+
+        h2 {
+          color: whitesmoke;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  h1, h3 {
+
+    line-height: 1;
+    text-shadow: rgba(73, 73, 82, 0.7) 1px 1px 10px;
+    text-align: left;
+    height: fit-content;
+
+    span {
+      display: block;
+    }
+  }
+
+
+  .slides {
+
+    section {
+      padding-top: 100px;
+      padding-bottom: 150px;
+
+      li {
+        list-style-type: none;
+      }
+
+      .plus {
+        display: block;
+        font-size: 150%;
+        padding: 25px;
+      }
+
+      .column {
+        flex-direction: column;
+      }
+
+      .p-15-0 {
+        padding: 25px 0;
+      }
+
+      .mt-15 {
+        padding-top: 15px;
+      }
+
+      .slide-header {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        text-align: right;
+        padding-bottom: 20px;
+
+        &.left {
+          text-align: left;
+        }
+
+        h4 {
+          font-size: 80%;
+          margin: 0;
+
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .fragment {
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      .left {
+        padding-right: 35px;
+      }
+
+      .right {
+        padding-left: 35px;
+      }
+
+      h5 {
+        font-size: 60%;
+        color: $red;
+        text-align: left;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 80%;
+          height: 100%;
+          width: 30px;
+          transform: translateY(-50%);
+          background: url(../../assets/fleche-droite-de-ligne-fine-droite.svg) no-repeat center;
+          background-size: contain;
+          transition: all 2.5s ease;
+        }
+      }
+
+      &.present {
+        div:not(.fragment) {
+          h5 {
+            &:after {
+              right: 5%;
+            }
+          }
+        }
+
+        .fragment.visible {
+          h5 {
+            &:after {
+              right: 5%;
+            }
+          }
+        }
+
+      }
+
+      .circles {
+        width: 100%;
+        align-items: center;
+        margin-top: 25px;
+      }
+
+      .circle {
+        border-radius: 100%;
+        width: 6vw;
+        height: 6vw;
+        background-color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center !important;
+
+        span {
+          padding: 15px;
+          font-size: 35%;
+          color: $bg-grey;
+        }
+      }
+    }
+
+
+    h2 {
+      text-align: right;
+      color: #86909C;
+    }
+
+
+    p {
+      font-size: 35%;
+
+    }
+
+    .logo {
+      width: 120px;
+      padding: 10px 25px;
+    }
+
+    .d-flex {
+      display: flex;
+
+      p {
+        text-align: left;
+      }
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    .flex-1-5 {
+      flex: 1.5;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+  }
+
+  .slide2 {
+    .container {
+      padding: 100px 0;
+    }
+
+    .index {
+      justify-content: space-between;
+
+      p {
+        position: relative;
+        text-align: left;
+        padding-right: 60px;
+        flex: 1;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 40%;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 30px;
+          height: 100%;
+          width: 30px;
+          transform: translateY(-50%);
+          background: url(../../assets/fleche-droite-de-ligne-fine-droite.svg) no-repeat center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+
+  // slides avec image et titre
+
+  .slide-titre {
+    .right-text {
+      text-align: left;
+      flex: 1;
+      padding: 0 20px;
+
+      h3 {
+
+      }
+
+      p {
+        padding-left: 5px;
+      }
+    }
+
+
+    .left-img {
+      flex: 1.3;
+      padding: 0 20px;
+      position: relative;
+
+      //&:after {
+      //  content: "";
+      //  position: absolute;
+      //  width: 100%;
+      //  height: 100%;
+      //  top: 0;
+      //  left: 0;
+      //  background-color: rgba(0, 0, 0, 0.35);
+      //}
+
+      img {
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .slide3 {
+
+  }
+
+
+  .slide4 {
+    .list {
+      padding: 25px;
+      margin-top: 50px;
+      box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
+
+      .list-item {
+        padding: 5px 0;
+        font-size: 45%;
+      }
+
+    }
+
+
+    .circle {
+      background-color: rgba(255, 86, 71, 0.8) !important;
+
+      span {
+        font-size: 70% !important;
+        line-height: 1;
+      }
+    }
+
+  }
+
+  .center {
+    text-align: center !important;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .slide5 {
+    .logo, .logo-group {
+      width: 90px;
+      padding-top: 10px;
+    }
+
+
+    &#slide5-2 {
+      .logo.client {
+        width: 70px;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  li {
+    font-size: 35%;
+  }
+
+  .slide6 {
+
+    img {
+      height: auto;
+      max-height: 550px;
+      max-width: 900px;
+      object-fit: contain;
+    }
+
+    .here {
+      position: absolute;
+      right: 165px;
+      bottom: 290px;
+      width: 70px !important;
+      height: 70px !important;
+      background-color: $red !important;
+      font-size: 25%;
+      animation-name: shake;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in;
+
+    }
+  }
+
+  .slide7 {
+    .circle {
+      border: 1px solid white;
+      background-color: transparent !important;
+      color: $red;
+      width: 4.5vw !important;
+      height: 4.5vw !important;
+    }
+
+    &#slide7-5 {
+      .thirteen {
+        background-color: $grey !important;
+        color: whitesmoke !important;
+        border: none;
+
+      }
+    }
+
+
+  }
+
+  .slide9 {
+    p {
+      font-size: 50%;
+      margin: 0;
+    }
+
+    .wp-logo {
+      min-width: 150px !important;
+    }
+
+    .right {
+      .inner {
+        p {
+          margin: 0;
+        }
+
+        .logo {
+          height: 150px;
+          width: auto;
+        }
+      }
+
+    }
+
+    .type-projet {
+
+
+      span {
+
+      }
+    }
+  }
+
+  .slide10 {
+
+    img {
+      max-width: 100px;
+    }
+
+    #prod-solo {
+      margin: auto;
+      background-color: $red !important;
+    }
+
+    .circles {
+      .circle {
+        border: $red 1px solid;
+        background-color: transparent !important;
+
+        p {
+          text-align: center !important;
+
+        }
+
+      }
+    }
+  }
+
+
+  .slide11 {
+    .inner {
+      img {
+        max-height: 70px !important;
+        max-width: 100px !important;
+        width: auto !important;
+        object-fit: contain;
+      }
+    }
+
+
+  }
+
+  .slide13 {
+
+    .arrow {
+      max-height: 50px;
+      object-fit: contain;
+    }
+
+    .wp-list {
+      //margin-top: 80px;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
+
+        .logo {
+          margin: 0;
+        }
+
+        p {
+          text-align: center;
+          color: $red;
+          text-transform: uppercase;
+          font-size: 50%;
+        }
+      }
+    }
+  }
+
+
+  .slide15 {
+    li {
+      padding: 10px 0;
+
+      img {
+        height: 20px;
+        max-width: 70px;
+        object-fit: contain;
+        margin: 0 10px;
+      }
+    }
+
+    .right {
+      img {
+        margin: 0;
+        max-height: 120px;
+        max-width: 200px;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      text-align: left;
+    }
+
+    h6 {
+      font-size: 40%;
+    }
+  }
+
+  .slide16 {
+    .wrapper {
+      .left {
+        flex: 1;
+      }
+
+      .right {
+        background-image: url(assets/mockup-home-2.png);
+        flex: 1.2;
+
+        li {
+        }
+
+        img {
+          width: 100%;
+          max-height: 50vh;
+          object-fit: contain;
+        }
+
+        iframe {
+          z-index: 0;
+          width: 100%;
+          height: 40vh;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .slide17 {
+    .circle {
+      background-color: $red !important;
+      width: 7vw !important;
+      height: 7vw !important;
+      font-size: 60%;
+    }
+  }
+
+  .slide18, .slide19 {
+    .left, .right {
+      img:not(.logo) {
+        max-width: 100%;
+      }
+    }
+
+    h6 {
+      color: $red;
+      font-size: 80%;
+      text-align: left;
+    }
+
+    .plugins {
+      margin-top: 50px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 40vh;
+    }
+  }
+
+
+  .slide23 {
+
+    .pb-20 {
+      padding-bottom: 20px;
+    }
+
+    .pos, .neg {
+      padding: 25px 0;
+
+      p {
+        font-size: 50%;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .slide25 {
+    .orga {
+
+      margin: 70px 5px;
+      padding: 25px;
+      box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
+      height: 25vh;
+    }
+
+    h6 {
+      color: $red;
+    }
+  }
+
+  .slide27 {
+    img {
+      max-width: 170px;
+    }
+
+    .logo {
+      max-height: 120px;
+      object-fit: contain;
+    }
+
+    h4 {
+      font-size: 60%;
+    }
+  }
+
+  .slide28 {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .slide29 {
+    h2 {
+      text-align: center;
+      color: $red;
+    }
+  }
+
+  // Colors
+
+
+  .grey {
+    color: $grey;
+  }
+
+
+  .white {
+    color: whitesmoke;
+  }
+
+  .red {
+    color: $red;
+  }
+
+  .dark-grey {
+    color: #25313F;
+  }
+
+  // Font-weight
+
+  .semibold {
+    font-weight: 500;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .light {
+    font-weight: 300;
+  }
+
+  .small {
+    font-size: 40%;
+  }
+
+  .x-small {
+    font-size: 30%;
+  }
+
+
+}
+
+// .reveal
